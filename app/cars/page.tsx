@@ -1,6 +1,8 @@
+import './page.css';
 import React from 'react';
 import Car from '../lib/types/Car';
 import CarCard from '../component/carCard';
+import Link from 'next/link'; // Stelle sicher, dass Link importiert ist
 
 // Testdaten
 const testCars: Car[] = [
@@ -14,11 +16,23 @@ const testCars: Car[] = [
 
 export default function Page() {
     return (
-        <div>
-            {testCars.map((car) => (
-                <CarCard car={car} />
+        <div className="flex flex-col items-center gap-4 p-4">
+
+            <div className="flex gap-4">
+                <Link href="/" className="text-white-500">
+                    Home
+                </Link>
+                <Link href="/cars" className="text-white">
+                    Cars
+                </Link>
+            </div>
+
+
+            {testCars.map((car, index) => (
+                <div key={index} className="w-full max-w-md p-4 border-2 border-gray-800 bg-green-500 rounded-lg shadow-lg">
+                    <CarCard car={car} />
+                </div>
             ))}
         </div>
     );
 }
-//Hallo ich würde gerne pushen hallo
