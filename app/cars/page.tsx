@@ -1,8 +1,7 @@
-import './page.css';
 import React from 'react';
 import Car from '../lib/types/Car';
-import CarCard from '../component/carCard';
-import Link from 'next/link'; // Stelle sicher, dass Link importiert ist
+import Link from 'next/link';
+import CarList from '../list/list';
 
 // Testdaten
 const testCars: Car[] = [
@@ -28,11 +27,9 @@ export default function Page() {
             </div>
 
 
-            {testCars.map((car, index) => (
-                <div key={index} className="w-full max-w-md p-4 border-2 border-gray-800 bg-green-500 rounded-lg shadow-lg">
-                    <CarCard car={car} />
-                </div>
-            ))}
+            <div >
+                <CarList cars={testCars} ></CarList>
+            </div>
         </div>
     );
 }
